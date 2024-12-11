@@ -13,127 +13,145 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Stok awal 10
-      id: stok-awal-10
+    - name: DI bawah 5 tahun tanpa lembur
+      id: di-bawah-5-tahun-tanpa-lembur
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: Stok awal 10
-        setup-command: javac TugasPerulangan.java
-        command: java TugasPerulangan
+        test-name: DI bawah 5 tahun tanpa lembur
+        setup-command: javac Gaji.java
+        command: java Gaji
+        input: |-
+          4
+          0
+        expected-output: |-
+          5000000
+          3
+          1
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+    - name: Di bawah 5 tahun dengan lembur
+      id: di-bawah-5-tahun-dengan-lembur
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Di bawah 5 tahun dengan lembur
+        setup-command: javac Gaji.java
+        command: java Gaji
+        input: |-
+          4
+          5
+        expected-output: |-
+          5200000
+          3
+          1
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+    - name: Antara 5 dan 10 tanpa lembur
+      id: antara-5-dan-10-tanpa-lembur
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Antara 5 dan 10 tanpa lembur
+        setup-command: javac Gaji.java
+        command: java Gaji
+        input: |-
+          5
+          0
+        expected-output: |-
+          7500000
+          3
+          1
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+    - name: Antara 5 dan 10 dengan lembur
+      id: antara-5-dan-10-dengan-lembur
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Antara 5 dan 10 dengan lembur
+        setup-command: javac Gaji.java
+        command: java Gaji
         input: |-
           10
-          2
-        expected-output: "-1"
+          3
+        expected-output: |-
+          7650000
+          3
+          1
         comparison-method: exact
         timeout: 10
         max-score: 10
-    - name: Stok awal 100 kurang 3
-      id: stok-awal-100-kurang-3
+    - name: Di atas 10 tanpa lembur
+      id: di-atas-10-tanpa-lembur
       uses: classroom-resources/autograding-io-grader@v1
       with:
-        test-name: Stok awal 100 kurang 3
-        setup-command: javac TugasPerulangan.java
-        command: java TugasPerulangan
+        test-name: Di atas 10 tanpa lembur
+        setup-command: javac Gaji.java
+        command: java Gaji
         input: |-
-          100
+          11
+          0
+        expected-output: |-
+          10000000
           3
-        expected-output: '16'
+          1
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+    - name: Di ataas 10 tahun dengan lembur
+      id: di-ataas-10-tahun-dengan-lembur
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Di ataas 10 tahun dengan lembur
+        setup-command: javac Gaji.java
+        command: java Gaji
+        input: |-
+          12
+          4
+        expected-output: |-
+          10300000
+          3
+          1
+        comparison-method: exact
+        timeout: 10
+        max-score: 10
+    - name: Perhitungan
+      id: perhitungan
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Perhitungan
+        setup-command: javac Hitung.java
+        command: java Hitung
+        input: |-
+          5
+          Y
+          6
+          Y
+          9
+          Y
+          20
+          T
+        expected-output: |-
+          Nilai minimal : 5
+          Nilai maksimal : 20
+          Nilai rata-rata : 10.0
         comparison-method: regex
         timeout: 10
-        max-score: 20
-    - name: Stok awal 100 kurang 4
-      id: stok-awal-100-kurang-4
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: Stok awal 100 kurang 4
-        setup-command: javac TugasPerulangan.java
-        command: java TugasPerulangan
-        input: |-
-          100
-          4
-        expected-output: "-1"
-        comparison-method: exact
-        timeout: 10
-        max-score: 20
-    - name: Deret 3
-      id: deret-3
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: Deret 3
-        setup-command: javac TugasPerulangan2.java
-        command: java TugasPerulangan2
-        input: '5'
-        expected-output: |-
-          3
-          6
-          9
-          12
-          15
-        comparison-method: exact
-        timeout: 10
-        max-score: 10
-    - name: Max 10
-      id: max-10
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: Max 10
-        setup-command: javac TugasPerulangan2.java
-        command: java TugasPerulangan2
-        input: '7'
-        expected-output: |-
-          3
-          6
-          9
-          12
-          15
-          18
-          21
-        comparison-method: exact
-        timeout: 10
-        max-score: 20
-    - name: Maksimal 10
-      id: maksimal-10
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: Maksimal 10
-        setup-command: javac TugasPerulangan2.java
-        command: java TugasPerulangan2
-        input: '10'
-        expected-output: |-
-          3
-          6
-          9
-          12
-          15
-          18
-          21
-          24
-          27
-          30
-        comparison-method: exact
-        timeout: 10
-        max-score: 10
-    - name: Out of range
-      id: out-of-range
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: Out of range
-        setup-command: javac TugasPerulangan2.java
-        command: java TugasPerulangan2
-        input: '22'
-        expected-output: "-1"
-        comparison-method: exact
-        timeout: 10
-        max-score: 10
+        max-score: 40
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        STOK-AWAL-10_RESULTS: "${{steps.stok-awal-10.outputs.result}}"
-        STOK-AWAL-100-KURANG-3_RESULTS: "${{steps.stok-awal-100-kurang-3.outputs.result}}"
-        STOK-AWAL-100-KURANG-4_RESULTS: "${{steps.stok-awal-100-kurang-4.outputs.result}}"
-        DERET-3_RESULTS: "${{steps.deret-3.outputs.result}}"
-        MAX-10_RESULTS: "${{steps.max-10.outputs.result}}"
-        MAKSIMAL-10_RESULTS: "${{steps.maksimal-10.outputs.result}}"
-        OUT-OF-RANGE_RESULTS: "${{steps.out-of-range.outputs.result}}"
+        DI-BAWAH-5-TAHUN-TANPA-LEMBUR_RESULTS: "${{steps.di-bawah-5-tahun-tanpa-lembur.outputs.result}}"
+        DI-BAWAH-5-TAHUN-DENGAN-LEMBUR_RESULTS: "${{steps.di-bawah-5-tahun-dengan-lembur.outputs.result}}"
+        ANTARA-5-DAN-10-TANPA-LEMBUR_RESULTS: "${{steps.antara-5-dan-10-tanpa-lembur.outputs.result}}"
+        ANTARA-5-DAN-10-DENGAN-LEMBUR_RESULTS: "${{steps.antara-5-dan-10-dengan-lembur.outputs.result}}"
+        DI-ATAS-10-TANPA-LEMBUR_RESULTS: "${{steps.di-atas-10-tanpa-lembur.outputs.result}}"
+        DI-ATAAS-10-TAHUN-DENGAN-LEMBUR_RESULTS: "${{steps.di-ataas-10-tahun-dengan-lembur.outputs.result}}"
+        PERHITUNGAN_RESULTS: "${{steps.perhitungan.outputs.result}}"
       with:
-        runners: stok-awal-10,stok-awal-100-kurang-3,stok-awal-100-kurang-4,deret-3,max-10,maksimal-10,out-of-range
+        runners: di-bawah-5-tahun-tanpa-lembur,di-bawah-5-tahun-dengan-lembur,antara-5-dan-10-tanpa-lembur,antara-5-dan-10-dengan-lembur,di-atas-10-tanpa-lembur,di-ataas-10-tahun-dengan-lembur,perhitungan
+  
+     
+
+   
+    
